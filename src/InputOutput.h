@@ -8,13 +8,13 @@
 using namespace std;
 
 class InputOutput {
-public:
-    void openFiles();
-    void writeLine(string);
-    void writeError(string);
-    string readLine();
-    bool isEndOfFile();
-	void closeFiles();
+    public:
+        void openFiles();
+        void writeLine(string);
+        void writeError(string);
+        string readLine();
+        bool isEndOfFile();
+        void closeFiles();
 };
 
 #endif /* INPUTOUTPUT_H_ */

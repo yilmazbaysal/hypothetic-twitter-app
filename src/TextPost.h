@@ -4,12 +4,12 @@
 #include "Post.h"
 
 class TextPost: public Post {
-public:
-	TextPost(string, string);
-	TextPost() { };
+    public:
+        TextPost(string, string);
+        TextPost() { };
 
-	string toString();
-	string getType();
+        string toString();
+        string getType();
 };
 
 #endif /* TEXTPOST_H_ */

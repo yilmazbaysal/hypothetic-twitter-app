@@ -4,21 +4,21 @@
 Post::Post(string id, string tweet) {
     likedUsers = new LinkedList<User>();
 
-	this->id = id;
-	this->tweet = tweet;
+    this->id = id;
+    this->tweet = tweet;
 }
 
 void Post::returnInitial() {
-	delete likedUsers;
+    delete likedUsers;
     likedUsers = new LinkedList<User>();
 }
 
 string Post::getId() {
-	return id;
+    return id;
 }
 
 LinkedList<User>* Post::getLikedUsers() {
-	return likedUsers;
+    return likedUsers;
 }
 
 // Adds the user who liked this post to the list

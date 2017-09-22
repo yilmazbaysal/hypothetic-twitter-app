@@ -3,23 +3,23 @@
 #include <stdlib.h>
 
 Manager::Manager() {
-	io->openFiles();
+    io->openFiles();
 
-	users = new LinkedList<User>();
+    users = new LinkedList<User>();
 }
 
 void Manager::operateInputs() {
     string operation;
-	string userName1;
-	
+    string userName1;
+
     while(!io->isEndOfFile()) {
-		stringstream ss(io->readLine());
-		
+        stringstream ss(io->readLine());
+
         ss >> operation >> userName1;
-		
+
         if(operation == "AddUser") {
-			string comment;
-			ss >> comment;
+            string comment;
+            ss >> comment;
             addUser(userName1, comment);
         }
         else if(!users->isContain(userName1)) { // Control if the user1 exists or not
@@ -42,8 +42,8 @@ void Manager::operateInputs() {
         }
         else { // All operations that need a user2
             string userName2;
-			ss >> userName2;
-			
+            ss >> userName2;
+
             if(!users->isContain(userName2)) { // Check if the user2 exists or not
                 io->writeError("the user '" + userName2 + "' could not be found");
             }
@@ -56,17 +56,17 @@ void Manager::operateInputs() {
             else if(operation == "BlockUser") {
                 users->get(userName1)->blockUser(users->get(userName2));
             }
-			else { // All operations that need a postId
-				string postId;
-				ss >> postId;
-				
-				if(operation == "LikePost") {
-					users->get(userName1)->likePost(users->get(userName2), postId);
-				}
-				else if(operation == "Repost") {
-					users->get(userName1)->repost(users->get(userName2), postId);
-				}
-			}
+            else { // All operations that need a postId
+                string postId;
+                ss >> postId;
+
+                if(operation == "LikePost") {
+                    users->get(userName1)->likePost(users->get(userName2), postId);
+                }
+                else if(operation == "Repost") {
+                    users->get(userName1)->repost(users->get(userName2), postId);
+                }
+            }
         }
     }
 }
@@ -77,8 +77,8 @@ void Manager::addUser(string userName, string personalComments) {
         return;
     }
 
-	User* user = new User(userName, personalComments); // (Will be deallocated in LinkedList's free() method)
-	users->add(user);
+    User* user = new User(userName, personalComments); // (Will be deallocated in LinkedList's free() method)
+    users->add(user);
 
     io->writeLine("User '" + userName + "' has been created");
 }
@@ -111,8 +111,8 @@ int Manager::calcImageSize(string image) {
 }
 
 Manager::~Manager() {
-	io->closeFiles();
-	
+    io->closeFiles();
+
     users->free();
     delete users;
 }

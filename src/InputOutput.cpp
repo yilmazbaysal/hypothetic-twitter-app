@@ -5,7 +5,7 @@ ofstream oFile;
 
 void InputOutput::openFiles() {
     iFile.open("input.txt");
-	oFile.open("out.txt");
+    oFile.open("out.txt");
 }
 
 // Writes the given string to both file and console as a line
@@ -32,7 +32,7 @@ bool InputOutput::isEndOfFile() {
 }
 
 void InputOutput::closeFiles() {
-	iFile.close();
-	oFile.close();
+    iFile.close();
+    oFile.close();
 }
 
